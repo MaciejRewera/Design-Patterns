@@ -9,7 +9,7 @@
 
 
 LightOffCommand::LightOffCommand(Light _light) : light(_light) {
-
+	this->name = "LightOffCommand";
 }
 
 LightOffCommand::~LightOffCommand() {

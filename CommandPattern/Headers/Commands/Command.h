@@ -8,13 +8,19 @@
 #ifndef HEADERS_COMMANDS_COMMAND_H_
 #define HEADERS_COMMANDS_COMMAND_H_
 
+#include <iostream>
 
 class Command {
+protected:
+	std::string name;
 public:
-	virtual ~Command() {};
+	Command();
+	virtual ~Command();
 
 	virtual void execute() = 0;
 	virtual void undo() = 0;
+
+	std::string getName();
 };
 
 

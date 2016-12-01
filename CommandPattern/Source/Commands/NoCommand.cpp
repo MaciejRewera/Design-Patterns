@@ -9,7 +9,7 @@
 
 
 NoCommand::NoCommand() {
-
+	this->name = "NoCommand";
 }
 
 NoCommand::~NoCommand() {

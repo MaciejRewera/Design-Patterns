@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include <RemoteControl.h>
 #include <Light.h>
 #include <LightOnCommand.h>
 #include <LightOffCommand.h>
@@ -14,14 +15,22 @@
 
 int main() {
 
-	Light light = Light();
-	LightOnCommand lightOn = LightOnCommand(light);
-	LightOffCommand lightOff = LightOffCommand(light);
+	RemoteControl remoteControl;
+	Light light;
 
-	lightOn.execute();
-	lightOff.execute();
-	lightOff.undo();
-	lightOn.undo();
+	LightOnCommand lightOnCommand = LightOnCommand(light);
+	LightOffCommand lightOffCommand = LightOffCommand(light);
+
+	remoteControl.setCommand(0, lightOnCommand, lightOffCommand);
+	std::cout << remoteControl << std::endl;
+
+	remoteControl.onButtonPushed(0);
+	remoteControl.undoButtonPushed();
+	remoteControl.offButtonPushed(0);
+	remoteControl.undoButtonPushed();
+
+	remoteControl.onButtonPushed(1);
+	remoteControl.offButtonPushed(1);
 
 }
 
