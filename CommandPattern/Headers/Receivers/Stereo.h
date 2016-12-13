@@ -12,7 +12,13 @@
 class Stereo {
 private:
 	int volume;
+	int state;
 public:
+	static const int OFF = 0;
+	static const int CD = 1;
+	static const int DVD = 2;
+	static const int RADIO = 3;
+
 	Stereo();
 	~Stereo();
 
@@ -24,6 +30,7 @@ public:
 	void setVolume(int);
 
 	int getVolume();
+	int getState();
 
 };
 
