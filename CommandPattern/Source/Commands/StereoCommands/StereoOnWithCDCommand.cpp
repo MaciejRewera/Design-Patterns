@@ -6,10 +6,8 @@
  */
 
 #include <StereoOnWithCDCommand.h>
-#include <Stereo.h>
 
 StereoOnWithCDCommand::StereoOnWithCDCommand(Stereo _stereo) :stereo(_stereo), previousState(_stereo.getState() ) {
-
 
 }
 
