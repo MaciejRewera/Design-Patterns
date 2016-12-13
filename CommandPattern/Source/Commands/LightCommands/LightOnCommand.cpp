@@ -8,7 +8,7 @@
 #include <LightOnCommand.h>
 
 
-LightOnCommand::LightOnCommand(Light _light) : light(_light) {
+LightOnCommand::LightOnCommand(Light& _light) : light(&_light) {
 	this->name = "LightOnCommand";
 }
 
@@ -18,10 +18,10 @@ LightOnCommand::~LightOnCommand() {
 
 
 void LightOnCommand::execute() {
-	this->light.on();
+	this->light->on();
 }
 
 void LightOnCommand::undo() {
-	this->light.off();
+	this->light->off();
 }
 

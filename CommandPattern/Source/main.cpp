@@ -11,26 +11,49 @@
 #include <Light.h>
 #include <LightOnCommand.h>
 #include <LightOffCommand.h>
+#include <Stereo.h>
+#include <StereoOffCommand.h>
+#include <StereoOnWithCDCommand.h>
+#include <StereoOnWithDVDCommand.h>
+#include <StereoOnWithRadioCommand.h>
 
 
 int main() {
 
 	RemoteControl remoteControl;
 	Light light;
+	Stereo stereo;
+
 
 	LightOnCommand lightOnCommand = LightOnCommand(light);
 	LightOffCommand lightOffCommand = LightOffCommand(light);
 
+	StereoOnWithCDCommand stereoOnWithCDCommand(stereo);
+	StereoOnWithDVDCommand stereoOnWithDVDCommand(stereo);
+	StereoOnWithRadioCommand stereoOnWithRadioCommand(stereo);
+	StereoOffCommand stereoOffCommand(stereo);
+
+
 	remoteControl.setCommand(0, lightOnCommand, lightOffCommand);
+	remoteControl.setCommand(1, stereoOnWithCDCommand, stereoOffCommand);
+	remoteControl.setCommand(2, stereoOnWithDVDCommand, stereoOffCommand);
+	remoteControl.setCommand(3, stereoOnWithRadioCommand, stereoOffCommand);
+
+
 	std::cout << remoteControl << std::endl;
 
-	remoteControl.onButtonPushed(0);
-	remoteControl.undoButtonPushed();
-	remoteControl.offButtonPushed(0);
-	remoteControl.undoButtonPushed();
-
+	std::cout << "---State: " << stereo.getState() << std::endl;
 	remoteControl.onButtonPushed(1);
+	std::cout << "---State: " << stereo.getState() << std::endl;
+	remoteControl.onButtonPushed(2);
+	std::cout << "---State: " << stereo.getState() << std::endl;
+	remoteControl.onButtonPushed(3);
+	std::cout << "---State: " << stereo.getState() << std::endl;
+	remoteControl.undoButtonPushed();
+	std::cout << "---State: " << stereo.getState() << std::endl;
 	remoteControl.offButtonPushed(1);
+	std::cout << "---State: " << stereo.getState() << std::endl;
+	remoteControl.undoButtonPushed();
 
 }
 

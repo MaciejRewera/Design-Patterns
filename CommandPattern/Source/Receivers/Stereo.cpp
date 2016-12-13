@@ -48,6 +48,10 @@ void Stereo::setVolume(int _vol) {
 	std::cout << "Volume: " << _vol << std::endl;
 }
 
+void Stereo::setState(int _state) {
+	this->state = _state;
+}
+
 
 int Stereo::getVolume() {
 	return this->volume;

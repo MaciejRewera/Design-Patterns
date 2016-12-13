@@ -14,10 +14,10 @@
 
 class LightOnCommand : public Command {
 private:
-	Light light;
+	Light* light;
 
 public:
-	LightOnCommand(Light);
+	LightOnCommand(Light&);
 	~LightOnCommand();
 
 	void execute();
