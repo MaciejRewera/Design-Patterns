@@ -10,7 +10,7 @@
 #include <Stereo.h>
 
 
-Stereo::Stereo() : volume(0) {
+Stereo::Stereo() : volume(0), state(OFF) {
 
 }
 
@@ -24,27 +24,36 @@ void Stereo::on() {
 }
 
 void Stereo::off() {
+	this->state = OFF;
 	std::cout << "Stereo is OFF" << std::endl;
 }
 
 void Stereo::setCd() {
+	this->state = CD;
 	std::cout << "Stereo : CD" << std::endl;
 }
 
 void Stereo::setDvd() {
+	this->state = DVD;
 	std::cout << "Stereo : DVD" << std::endl;
 }
 
 void Stereo::setRadio() {
+	this->state = RADIO;
 	std::cout << "Stereo : Radio" << std::endl;
 }
 
 void Stereo::setVolume(int _vol) {
 	this->volume = _vol;
+	std::cout << "Volume: " << _vol << std::endl;
 }
 
 
 int Stereo::getVolume() {
 	return this->volume;
+}
+
+int Stereo::getState() {
+	return this->state;
 }
 

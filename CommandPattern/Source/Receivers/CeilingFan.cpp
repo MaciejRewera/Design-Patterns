@@ -10,7 +10,7 @@
 #include <CeilingFan.h>
 
 
-CeilingFan::CeilingFan() : speed(0) {
+CeilingFan::CeilingFan() : speed(OFF) {
 
 }
 

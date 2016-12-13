@@ -28,10 +28,7 @@ public:
 	void off();
 
 	int getSpeed();
-
 };
-
-
 
 
 #endif /* HEADERS_RECEIVERS_CEILINGFAN_H_ */
