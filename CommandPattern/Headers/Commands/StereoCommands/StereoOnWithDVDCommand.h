@@ -13,10 +13,10 @@
 
 class StereoOnWithDVDCommand : public Command {
 private:
-	Stereo stereo;
+	Stereo* stereo;
 	int previousState;
 public:
-	StereoOnWithDVDCommand(Stereo _stereo);
+	StereoOnWithDVDCommand(Stereo& _stereo);
 	~StereoOnWithDVDCommand();
 
 	void execute();

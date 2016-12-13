@@ -13,11 +13,11 @@
 
 class CeilingFanHighCommand : public Command {
 private:
-	CeilingFan ceilingFan;
+	CeilingFan* ceilingFan;
 	int prevSpeed;
 
 public:
-	CeilingFanHighCommand(CeilingFan);
+	CeilingFanHighCommand(CeilingFan&);
 	~CeilingFanHighCommand();
 
 	void execute();

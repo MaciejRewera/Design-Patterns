@@ -7,7 +7,7 @@
 
 #include <CeilingFanHighCommand.h>
 
-CeilingFanHighCommand::CeilingFanHighCommand(CeilingFan _ceilingFan) : ceilingFan(_ceilingFan) {
+CeilingFanHighCommand::CeilingFanHighCommand(CeilingFan& _ceilingFan) : ceilingFan(&_ceilingFan) {
 	this->prevSpeed = _ceilingFan.getSpeed();
 }
 
@@ -17,19 +17,19 @@ CeilingFanHighCommand::~CeilingFanHighCommand() {
 
 
 void CeilingFanHighCommand::execute() {
-	this->prevSpeed = ceilingFan.getSpeed();
-	ceilingFan.high();
+	this->prevSpeed = ceilingFan->getSpeed();
+	ceilingFan->high();
 }
 
 void CeilingFanHighCommand::undo() {
 	if (this->prevSpeed == CeilingFan::OFF) {
-		ceilingFan.off();
+		ceilingFan->off();
 	} else if (this->prevSpeed == CeilingFan::LOW) {
-		ceilingFan.low();
+		ceilingFan->low();
 	} else if (this->prevSpeed == CeilingFan::MEDIUM) {
-		ceilingFan.medium();
+		ceilingFan->medium();
 	} else if (this->prevSpeed == CeilingFan::HIGH) {
-		ceilingFan.high();
+		ceilingFan->high();
 	}
 }
 

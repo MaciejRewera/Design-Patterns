@@ -13,10 +13,10 @@
 
 class StereoOnWithRadioCommand : public Command {
 private:
-	Stereo stereo;
+	Stereo* stereo;
 	int previousState;
 public:
-	StereoOnWithRadioCommand(Stereo _stereo);
+	StereoOnWithRadioCommand(Stereo& _stereo);
 	~StereoOnWithRadioCommand();
 
 	void execute();

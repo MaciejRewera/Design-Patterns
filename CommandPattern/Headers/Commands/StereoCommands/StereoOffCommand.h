@@ -13,10 +13,10 @@
 
 class StereoOffCommand : public Command {
 private:
-	Stereo stereo;
+	Stereo* stereo;
 	int previousState;
 public:
-	StereoOffCommand(Stereo _stereo);
+	StereoOffCommand(Stereo& _stereo);
 	~StereoOffCommand();
 
 	void execute();

@@ -28,6 +28,7 @@ public:
 	void setDvd();
 	void setRadio();
 	void setVolume(int);
+	void setState(int);
 
 	int getVolume();
 	int getState();
